@@ -18,18 +18,13 @@
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const readPom = require('./readPom');
-const updatePackage = require('./updatePackage');
+const readPackage = require('./readPackage');
 
 module.exports = (configOptions = {}) => {
     const moduleRoot = configOptions.moduleRoot || path.resolve('.');
-
-    return readPom(moduleRoot).then(pom => {
-        return updatePackage(pom, moduleRoot);
-    }).then(packageJson => {
+    return readPackage(moduleRoot).then(packageJson => {
         const moduleName = packageJson.com_infiniteautomation.moduleName;
-
-        const webPackConfig = {
+        return {
             entry: {
                 [moduleName]: `./web-src/${moduleName}.js`
             },
@@ -39,8 +34,7 @@ module.exports = (configOptions = {}) => {
                         test: /\.html$/,
                         use: [{
                             loader: 'html-loader',
-                            options: {
-                            }
+                            options: {}
                         }]
                     },
                     {
@@ -49,7 +43,7 @@ module.exports = (configOptions = {}) => {
                             {
                                 loader: 'style-loader',
                                 options: {
-                                    insert: function(style) {
+                                    insert: function (style) {
                                         const meta = document.querySelector('meta[name="user-styles-after-here"]');
                                         meta.parentNode.insertBefore(style, meta);
                                     },
@@ -138,7 +132,5 @@ module.exports = (configOptions = {}) => {
                 'amcharts/xy': 'amcharts/xy'
             }
         };
-
-        return webPackConfig;
     });
 };
