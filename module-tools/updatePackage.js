@@ -31,7 +31,7 @@ module.exports = function updatePackage(pom, directory = path.resolve('.'), writ
         }
 
         packageJson.com_infiniteautomation.moduleName = pom.project.name[0];
-        packageJson.name = '@infinite-automation/' + pom.project.name[0];
+        packageJson.name = '@infinite-automation/' + _.kebabCase(pom.project.name[0]);
         // version tag may not be present or may contain a property
         if (pom.project.version && !pom.project.version[0].includes('${')) {
             packageJson.version = pom.project.version[0];
