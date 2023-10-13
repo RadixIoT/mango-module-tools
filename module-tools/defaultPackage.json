@@ -6,7 +6,7 @@
   "main": "",
   "dependencies": {},
   "devDependencies": {
-    "@infinite-automation/mango-module-tools": "^2.7.0"
+    "@radixiot/mango-module-tools": "^2.7.3"
   },
   "author": "Jared Wiltshire <jazdw@users.noreply.github.com>",
   "license": "UNLICENSED",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/RadixIoT/mango.git"
   },
-  "com_infiniteautomation": {
+  "com_radixiot": {
     "moduleName": ""
   }
 }
