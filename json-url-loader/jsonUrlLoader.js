@@ -1,6 +1,5 @@
-/**
- * @copyright 2019 {@link http://infiniteautomation.com|Infinite Automation Systems, Inc.} All rights reserved.
- * @author Jared Wiltshire
+/*
+ * Copyright (C) 2023 Radix IoT LLC. All rights reserved.
  */
 
 const loaderUtils = require('loader-utils');

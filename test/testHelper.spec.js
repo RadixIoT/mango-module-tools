@@ -1,4 +1,8 @@
-const testHelper = require('@infinite-automation/mango-module-tools/test-helper/testHelper');
+/*
+ * Copyright (C) 2023 Radix IoT LLC. All rights reserved.
+ */
+
+const testHelper = require('@radixiot/mango-module-tools/test-helper/testHelper');
 
 describe('testHelper Test suite', function () {
 

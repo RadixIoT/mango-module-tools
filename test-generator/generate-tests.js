@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-/**
- * Copyright 2020 Infinite Automation Systems Inc.
- * http://infiniteautomation.com/
+/*
+ * Copyright (C) 2023 Radix IoT LLC. All rights reserved.
  */
 
 const TestGenerator = require('./TestGenerator');
