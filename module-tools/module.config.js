@@ -77,10 +77,12 @@ module.exports = (configOptions = {}) => {
                 new CleanWebpackPlugin({
                     cleanStaleWebpackAssets: false
                 }),
-                new CopyWebpackPlugin([{
-                    context: 'web-src/static',
-                    from: '**/*'
-                }])
+                new CopyWebpackPlugin({
+                    patterns: [{
+                        from: '**/*',
+                        context: 'web-src/static'
+                    }]
+                })
             ],
             output: {
                 filename: '[name].js?v=[chunkhash]',
