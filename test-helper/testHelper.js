@@ -7,7 +7,7 @@ const path = require('path');
 const chai = require('chai');
 const MangoClient = require('@radixiot/mango-client');
 const defer = require('@radixiot/mango-client/src/util').defer;
-const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 
 // Monkey patch the Mocha Runner to add the response data into the Error message
 const fail = Mocha.Runner.prototype.fail;
