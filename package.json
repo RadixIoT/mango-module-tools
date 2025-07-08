@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@radixiot/mango-module-tools",
-  "version": "2.7.8",
+  "version": "2.7.9",
   "description": "Tools used for building and testing Mango Automation modules",
   "main": "./module-tools/module.config.js",
   "dependencies": {
