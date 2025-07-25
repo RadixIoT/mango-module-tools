@@ -44,12 +44,12 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@radixiot/mango-client@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@radixiot/mango-client/-/mango-client-1.4.0.tgz#afb9f4cca89bd6c10d6ee558aecfaa8607b660b4"
-  integrity sha512-U5TFr0i84Bai8uUu1zKYBPEJkqJKz/R6M7ZHUuOLhIiS0JKUrmcfcMqzzorjbbcqx1+hdGQGL1okeVLFJG7MHw==
+"@radixiot/mango-client@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@radixiot/mango-client/-/mango-client-1.4.1.tgz#82ac7348acf7bc691735d3766fef31e687d81dde"
+  integrity sha512-Nsb+WR9zTpUanqDzeE4nT97xf5FQ/MxAhPV8BlaXekLh4aFJ7G673zGSI2gS3XctQIrSS73igD4jlpJ4V+whWA==
   dependencies:
-    form-data "^4.0.3"
+    form-data "^4.0.4"
     moment "^2.30.1"
     moment-timezone "^0.6.0"
     uuid "^11.0.4"
@@ -1464,10 +1464,10 @@ for-each@^0.3.5:
   dependencies:
     is-callable "^1.2.7"
 
-form-data@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.3.tgz#608b1b3f3e28be0fccf5901fc85fb3641e5cf0ae"
-  integrity sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==
+form-data@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.4.tgz#784cdcce0669a9d68e94d11ac4eea98088edd2c4"
+  integrity sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
