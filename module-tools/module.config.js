@@ -20,8 +20,9 @@ module.exports = (configOptions = {}) => {
                         test: /\.html$/,
                         use: [{
                             loader: 'html-loader',
-                            options: {},
-                            minimize: false
+                            options: {
+                                minimize: false
+                            }
                         }]
                     },
                     {

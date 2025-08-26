@@ -6,7 +6,7 @@
   "main": "",
   "dependencies": {},
   "devDependencies": {
-    "@radixiot/mango-module-tools": "^3.0.2"
+    "@radixiot/mango-module-tools": "^3.0.3"
   },
   "author": "Jared Wiltshire <jazdw@users.noreply.github.com>",
   "license": "UNLICENSED",
