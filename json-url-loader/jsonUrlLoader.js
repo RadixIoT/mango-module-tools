@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2023 Radix IoT LLC. All rights reserved.
+ * Copyright (C) 2026 Radix IoT LLC. All rights reserved.
  */
 
 const loaderUtils = require('loader-utils');
-const {JsonPointer} = require('json-ptr');
+const jsonpointer = require('jsonpointer');
 
 const defaultOptions = {
     parse: content => JSON.parse(content),
@@ -49,17 +49,16 @@ const jsonUrlLoader = function(content, map, meta) {
 
     const parsed = options.parse(content);
     const targets = typeof options.targets === 'function' ? options.targets(parsed) : options.targets;
-    
+
     const promises = targets.map(p => {
-        const pointer = JsonPointer.create(p);
-        const value = pointer.get(parsed);
+        const value = jsonpointer.get(parsed, p);
         if (loaderUtils.isUrlRequest(value)) {
             return transformUrl.call(this, value).then(newValue => {
-                pointer.set(parsed, options.publicPath + newValue);
+                jsonpointer.set(parsed, options.publicPath + newValue);
             });
         }
     });
-    
+
     Promise.all(promises).then(() => {
         const serialized = options.serialize(parsed);
         callback(null, serialized, map, meta);
