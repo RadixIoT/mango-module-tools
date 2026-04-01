@@ -2,8 +2,19 @@
  * Copyright (C) 2026 Radix IoT LLC. All rights reserved.
  */
 
-const loaderUtils = require('loader-utils');
 const jsonpointer = require('jsonpointer');
+
+const isUrlRequest = (value) => {
+    if (!value || typeof value !== 'string') return false;
+    // skip absolute URLs, data URIs and protocol-relative URLs
+    if (/^[a-z][a-z0-9+.-]*:/i.test(value) || value.startsWith('//')) return false;
+    return true;
+};
+
+const urlToRequest = (value) => {
+    if (!value.startsWith('.') && !value.startsWith('/')) return `./${value}`;
+    return value;
+};
 
 const defaultOptions = {
     parse: content => JSON.parse(content),
@@ -25,7 +36,7 @@ const loadModule = function(request) {
 };
 
 const transformUrl = function(value) {
-    const request = loaderUtils.urlToRequest(value);
+    const request = urlToRequest(value);
     return loadModule.call(this, request).then(({source, sourceMap, module}) => {
         const assets = module.buildInfo.assets;
         if (assets && Object.keys(assets).length) {
@@ -45,16 +56,16 @@ const transformUrl = function(value) {
  */
 const jsonUrlLoader = function(content, map, meta) {
     const callback = this.async();
-    const options = Object.assign({}, defaultOptions, loaderUtils.getOptions(this));
+    const options = Object.assign({}, defaultOptions, this.getOptions());
 
     const parsed = options.parse(content);
     const targets = typeof options.targets === 'function' ? options.targets(parsed) : options.targets;
 
     const promises = targets.map(p => {
         const value = jsonpointer.get(parsed, p);
-        if (loaderUtils.isUrlRequest(value)) {
+        if (isUrlRequest(value)) {
             return transformUrl.call(this, value).then(newValue => {
-                jsonpointer.set(parsed, options.publicPath + newValue);
+                jsonpointer.set(parsed, p, options.publicPath + newValue);
             });
         }
     });
