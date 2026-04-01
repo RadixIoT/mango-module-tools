@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Radix IoT LLC. All rights reserved.
+ * Copyright (C) 2026 Radix IoT LLC. All rights reserved.
  */
 
 const path = require('path');
@@ -73,12 +73,15 @@ module.exports = (configOptions = {}) => {
                 })
             ],
             output: {
-                filename: '[name].js?v=[chunkhash]',
+                filename: '[name].js?v=[contenthash]',
+                clean: true,
                 path: path.resolve('web', 'angular'),
                 publicPath: `/modules/${moduleName}/web/angular/`,
-                libraryTarget: 'umd',
-                libraryExport: 'default',
-                library: moduleName
+                library: {
+                    type: 'umd',
+                    export: 'default',
+                    name: moduleName
+                }
             },
             externals: {
                 'angular': 'angular',
