@@ -44,14 +44,14 @@ module.exports = (configOptions = {}) => {
                         test: /\.(png|svg|jpg|jpeg|gif)$/,
                         type: 'asset/resource',
                         generator: {
-                            filename: 'images/[name].[ext]?v=[contenthash]'
+                            filename: 'images/[name][ext]?v=[contenthash]'
                         }
                     },
                     {
                         test: /\.(woff|woff2|eot|ttf|otf)$/,
                         type: 'asset/resource',
                         generator: {
-                            filename: 'fonts/[name].[ext]?v=[contenthash]'
+                            filename: 'fonts/[name][ext]?v=[contenthash]'
                         }
                     },
                     {
@@ -72,6 +72,9 @@ module.exports = (configOptions = {}) => {
                     }]
                 })
             ],
+            cache: {
+                type: 'filesystem',
+            },
             output: {
                 filename: '[name].js?v=[contenthash]',
                 clean: true,
